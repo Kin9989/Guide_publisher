@@ -6,6 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hướng Dẫn Trở Thành Publisher</title>
     <style>
+        /* Nút mở popup */
+        .open-popup {
+            background: #df1f2d;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Overlay khi bật popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        /* Nội dung popup */
+        .popup-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-box h2 {
+            margin-bottom: 15px;
+            color: #df1f2d;
+        }
+
+        .popup-box p {
+            color: #495057;
+            line-height: 1.5;
+        }
+
+        .popup-box a.close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .popup-box a.close-popup:hover {
+            color: #df1f2d;
+        }
+
+        /* Hiển thị popup khi trỏ tới id */
+        #popup:target {
+            display: flex;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -528,6 +595,15 @@
             <div class="shape-3"></div>
         </div>
 
+        <!-- popup -->
+        <div id="popup" class="popup-overlay">
+            <div class="popup-box">
+                <a href="#" class="close-popup" style="font-size: 30px;">&times;</a>
+                <br>
+                <img src="./img-six.jpg" alt="" style="width: 400px; height: 400px;">
+            </div>
+        </div>
+
         <div class="header">
             <h1 class="title">Lộ Trình Trở Thành Publisher</h1>
             <p class="subtitle">6 bước quan trọng để khởi đầu hành trình kinh doanh thành công</p>
@@ -564,70 +640,88 @@
             </svg>
 
             <div class="step step-1">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">1</span>
-                        🏦
+                <a href="https://www.canva.com/design/DAGq4eqLAS0/4sLCLQtM3r1yYMVXDB5vBw/edit"
+                    style="text-decoration: none;" target="_blank">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">1</span>
+                            🏦
+                        </div>
+                        <h3 class="step-title">Tạo Tài Khoản<br>KBank</h3>
+                        <p class="step-subtitle">Đăng ký và xác thực tài khoản ngân hàng để nhận thanh toán</p>
                     </div>
-                    <h3 class="step-title">Tạo Tài Khoản<br>KBank</h3>
-                    <p class="step-subtitle">Đăng ký và xác thực tài khoản ngân hàng để nhận thanh toán</p>
-                </div>
+                </a>
             </div>
 
             <div class="step step-2">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">2</span>
-                        📝
+                <a href="https://www.youtube.com/watch?v=JenEfVsoPu8" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none;">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">2</span>
+                            📝
+                        </div>
+                        <h3 class="step-title">Ký Hợp Đồng<br>Publisher</h3>
+                        <p class="step-subtitle">Hoàn thành thủ tục pháp lý và cam kết hợp tác</p>
                     </div>
-                    <h3 class="step-title">Ký Hợp Đồng<br>Publisher</h3>
-                    <p class="step-subtitle">Hoàn thành thủ tục pháp lý và cam kết hợp tác</p>
-                </div>
+                </a>
             </div>
 
             <div class="step step-3">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">3</span>
-                        📚
+                <a href="https://www.canva.com/design/DAGq4dnaOZQ/rCAEFVorYIy3Q5CRGkvFvg/edit" target="_blank"
+                    rel="noopener noreferrer" style="text-decoration: none;">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">3</span>
+                            📚
+                        </div>
+                        <h3 class="step-title">Nhận Tài Liệu<br>Hướng Dẫn</h3>
+                        <p class="step-subtitle">Tải về và nghiên cứu materials về sản phẩm</p>
                     </div>
-                    <h3 class="step-title">Nhận Tài Liệu<br>Hướng Dẫn</h3>
-                    <p class="step-subtitle">Tải về và nghiên cứu materials về sản phẩm</p>
-                </div>
+                </a>
             </div>
 
             <div class="step step-4">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">6</span>
-                        💰
+                <a href="#popup" class="open-popup">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">6</span>
+                            💰
+                        </div>
+                        <h3 class="step-title">Chi Trả Hoa Hồng<br>& Báo Cáo</h3>
+                        <p class="step-subtitle">Nhận thanh toán định kỳ và theo dõi kết quả</p>
                     </div>
-                    <h3 class="step-title">Chi Trả Hoa Hồng<br>& Báo Cáo</h3>
-                    <p class="step-subtitle">Nhận thanh toán định kỳ và theo dõi kết quả</p>
-                </div>
+                </a>
             </div>
 
             <div class="step step-5">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">5</span>
-                        🎓
+                <a href="https://meet.google.com/gph-hkwg-rwc" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none;">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">5</span>
+                            🎓
+                        </div>
+                        <h3 class="step-title">Coaching Hàng Tuần<br>(14h Thứ 4)</h3>
+                        <p class="step-subtitle">Tham gia buổi đào tạo và chia sẻ kinh nghiệm</p>
                     </div>
-                    <h3 class="step-title">Coaching Hàng Tuần<br>(Thứ 4)</h3>
-                    <p class="step-subtitle">Tham gia buổi đào tạo và chia sẻ kinh nghiệm</p>
-                </div>
+                </a>
             </div>
 
             <div class="step step-6">
-                <div class="step-wrapper">
-                    <div class="step-icon">
-                        <span class="step-number">4</span>
-                        💬
+                <a href="https://zalo.me/g/zlheub504" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none;">
+                    <div class="step-wrapper">
+                        <div class="step-icon">
+                            <span class="step-number">4</span>
+                            💬
+                        </div>
+                        <h3 class="step-title">Tham Gia<br>Group Zalo</h3>
+                        <p class="step-subtitle">Kết nối cộng đồng và nhận thông tin cập nhật</p>
                     </div>
-                    <h3 class="step-title">Tham Gia<br>Group Zalo</h3>
-                    <p class="step-subtitle">Kết nối cộng đồng và nhận thông tin cập nhật</p>
-                </div>
+                </a>
             </div>
+
         </div>
 
         <div class="cta-section">
