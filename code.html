@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Trở Thành Publisher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #df1f2d, #6c757d, #df1f2d);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #df1f2d, #6c757d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #6c757d;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 40px;
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .path-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .path-line {
+            fill: none;
+            stroke: url(#pathGradient);
+            stroke-width: 4;
+            stroke-dasharray: 10, 5;
+            animation: pathFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pathFlow {
+
+            0%,
+            100% {
+                stroke-dashoffset: 0;
+            }
+
+            50% {
+                stroke-dashoffset: 15;
+            }
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: slideInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .step:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .step:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .step:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .step:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .step:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .step-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 3px solid #f8f9fa;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(223, 31, 45, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .step-wrapper:hover::before {
+            left: 100%;
+        }
+
+        .step-wrapper:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(223, 31, 45, 0.15);
+            border-color: #df1f2d;
+        }
+
+        .step-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-1 .step-icon {
+            background: linear-gradient(135deg, #df1f2d, #c21807);
+        }
+
+        .step-2 .step-icon {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+
+        .step-3 .step-icon {
+            background: linear-gradient(135deg, #df1f2d, #c21807);
+        }
+
+        .step-4 .step-icon {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+
+        .step-5 .step-icon {
+            background: linear-gradient(135deg, #df1f2d, #c21807);
+        }
+
+        .step-6 .step-icon {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 35px;
+            height: 35px;
+            background: #212529;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-subtitle {
+            font-size: 0.95rem;
+            color: #6c757d;
+            line-height: 1.6;
+            padding: 0 10px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            border: 3px dashed #dee2e6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(223, 31, 45, 0.05), transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #495057;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #df1f2d, #c21807);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(223, 31, 45, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(223, 31, 45, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .decorative-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape-1,
+        .shape-2,
+        .shape-3 {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 120px;
+            height: 120px;
+            background: #df1f2d;
+            top: 10%;
+            right: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 80px;
+            height: 80px;
+            background: #6c757d;
+            bottom: 15%;
+            left: 8%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            background: #df1f2d;
+            top: 40%;
+            left: 15%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .roadmap {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-container {
+                padding: 30px 20px;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .roadmap {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                gap: 25px;
+            }
+
+            .step-wrapper {
+                padding: 25px 15px;
+            }
+
+            .step-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+                min-height: auto;
+            }
+
+            .step-subtitle {
+                min-height: auto;
+            }
+
+            .path-svg {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner-container">
+        <div class="decorative-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+            <div class="shape-3"></div>
+        </div>
+
+        <div class="header">
+            <h1 class="title">Lộ Trình Trở Thành Publisher</h1>
+            <p class="subtitle">6 bước quan trọng để khởi đầu hành trình kinh doanh thành công</p>
+        </div>
+
+        <div class="roadmap">
+            <svg class="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#df1f2d;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#6c757d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#df1f2d;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path class="path-line" d="M 16 25 Q 50 15 84 25 Q 90 50 84 75 Q 50 85 16 75 Q 10 50 16 25" />
+            </svg>
+
+            <div class="step step-1">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">1</span>
+                        🏦
+                    </div>
+                    <h3 class="step-title">Tạo Tài Khoản<br>KBank</h3>
+                    <p class="step-subtitle">Đăng ký và xác thực tài khoản ngân hàng để nhận thanh toán</p>
+                </div>
+            </div>
+
+            <div class="step step-2">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">2</span>
+                        📝
+                    </div>
+                    <h3 class="step-title">Ký Hợp Đồng<br>Publisher</h3>
+                    <p class="step-subtitle">Hoàn thành thủ tục pháp lý và cam kết hợp tác</p>
+                </div>
+            </div>
+
+            <div class="step step-3">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">3</span>
+                        📚
+                    </div>
+                    <h3 class="step-title">Nhận Tài Liệu<br>Hướng Dẫn</h3>
+                    <p class="step-subtitle">Tải về và nghiên cứu materials về sản phẩm</p>
+                </div>
+            </div>
+
+            <div class="step step-4">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">4</span>
+                        💬
+                    </div>
+                    <h3 class="step-title">Tham Gia<br>Group Zalo</h3>
+                    <p class="step-subtitle">Kết nối cộng đồng và nhận thông tin cập nhật</p>
+                </div>
+            </div>
+
+            <div class="step step-5">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">5</span>
+                        🎓
+                    </div>
+                    <h3 class="step-title">Coaching Hàng Tuần<br>(Thứ 4)</h3>
+                    <p class="step-subtitle">Tham gia buổi đào tạo và chia sẻ kinh nghiệm</p>
+                </div>
+            </div>
+
+            <div class="step step-6">
+                <div class="step-wrapper">
+                    <div class="step-icon">
+                        <span class="step-number">6</span>
+                        💰
+                    </div>
+                    <h3 class="step-title">Chi Trả Hoa Hồng<br>& Báo Cáo</h3>
+                    <p class="step-subtitle">Nhận thanh toán định kỳ và theo dõi kết quả</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-content">
+                <p class="cta-text">Bạn đã sẵn sàng bắt đầu hành trình Publisher?</p>
+                <button class="cta-button">Đăng Ký Ngay Hôm Nay</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced interactive effects
+        document.querySelectorAll('.step-wrapper').forEach((wrapper, index) => {
+            wrapper.addEventListener('mouseenter', function () {
+                const icon = this.querySelector('.step-icon');
+                icon.style.transform = 'translateY(-5px) scale(1.1) rotate(5deg)';
+                icon.style.boxShadow = '0 20px 40px rgba(223, 31, 45, 0.3)';
+            });
+
+            wrapper.addEventListener('mouseleave', function () {
+                const icon = this.querySelector('.step-icon');
+                icon.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+                icon.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+            });
+        });
+
+        // CTA button interaction
+        document.querySelector('.cta-button').addEventListener('click', function () {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px) scale(1)';
+            }, 150);
+        });
+
+        // Add subtle parallax effect to decorative shapes
+        document.addEventListener('mousemove', function (e) {
+            const shapes = document.querySelectorAll('.shape-1, .shape-2, .shape-3');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                const xPos = (x - 0.5) * speed;
+                const yPos = (y - 0.5) * speed;
+                shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
