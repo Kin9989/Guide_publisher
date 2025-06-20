@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hướng Dẫn Trở Thành Publisher</title>
+    <link rel="stylesheet" href="button_style.css">
     <style>
         * {
             margin: 0;
@@ -51,17 +52,17 @@
         .title {
             font-size: 3rem;
             font-weight: 800;
-            color: #212529;
+            color: #df1f2d;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #df1f2d, #6c757d);
+            background: #df1f2d;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #6c757d;
             font-weight: 400;
             max-width: 600px;
@@ -93,17 +94,15 @@
             stroke: url(#pathGradient);
             stroke-width: 4;
             stroke-dasharray: 10, 5;
-            animation: pathFlow 3s ease-in-out infinite;
+            animation: pathFlow 4s linear infinite;
         }
 
         @keyframes pathFlow {
-
-            0%,
-            100% {
+            0% {
                 stroke-dashoffset: 0;
             }
 
-            50% {
+            100% {
                 stroke-dashoffset: 15;
             }
         }
@@ -188,7 +187,7 @@
         }
 
         .step-1 .step-icon {
-            background: linear-gradient(135deg, #df1f2d, #c21807);
+            background: #df1f2d;
         }
 
         .step-2 .step-icon {
@@ -196,7 +195,7 @@
         }
 
         .step-3 .step-icon {
-            background: linear-gradient(135deg, #df1f2d, #c21807);
+            background: #df1f2d;
         }
 
         .step-4 .step-icon {
@@ -204,7 +203,7 @@
         }
 
         .step-5 .step-icon {
-            background: linear-gradient(135deg, #df1f2d, #c21807);
+            background: #df1f2d;
         }
 
         .step-6 .step-icon {
@@ -271,15 +270,15 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle, rgba(223, 31, 45, 0.05), transparent 70%);
-            animation: rotate 20s linear infinite;
+            animation: rotateClockwise 20s linear infinite;
         }
 
-        @keyframes rotate {
-            from {
+        @keyframes rotateClockwise {
+            0% {
                 transform: rotate(0deg);
             }
 
-            to {
+            100% {
                 transform: rotate(360deg);
             }
         }
@@ -297,7 +296,7 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #df1f2d, #c21807);
+            background: #df1f2d;
             color: white;
             padding: 18px 45px;
             border: none;
@@ -311,13 +310,43 @@
             letter-spacing: 1px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(223, 31, 45, 0.4);
+        .comic-brutal-button-container {
+            display: inline-block;
         }
 
-        .cta-button:active {
-            transform: translateY(-1px);
+        .comic-brutal-button {
+            position: relative;
+            background: #df1f2d;
+            border: 4px solid #000;
+            border-radius: 8px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transform: translateY(-4px);
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .comic-brutal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .comic-brutal-button:active {
+            transform: translateY(0px);
+            box-shadow: 0px 0px 0px #000;
+        }
+
+        .button-inner {
+            position: relative;
+            z-index: 3;
+        }
+
+        .button-text {
+            color: white;
+            text-decoration: none;
         }
 
         @keyframes slideInUp {
@@ -454,9 +483,9 @@
             <svg class="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#df1f2d;stop-opacity:1" />
-                        <stop offset="50%" style="stop-color:#6c757d;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#df1f2d;stop-opacity:1" />
+                        <stop offset="0%" style="stop-color:#df1f2d;" />
+                        <stop offset="50%" style="stop-color:#df1f2d;" />
+                        <stop offset="100%" style="stop-color:#df1f2d;" />
                     </linearGradient>
                 </defs>
                 <path class="path-line" d="M 16 25 Q 50 15 84 25 Q 90 50 84 75 Q 50 85 16 75 Q 10 50 16 25" />
@@ -494,17 +523,18 @@
                     <p class="step-subtitle">Tải về và nghiên cứu materials về sản phẩm</p>
                 </div>
             </div>
-
-            <div class="step step-4">
+            <div class="step step-4 ">
                 <div class="step-wrapper">
                     <div class="step-icon">
-                        <span class="step-number">4</span>
+                        <span class="step-number">6</span>
                         💬
                     </div>
-                    <h3 class="step-title">Tham Gia<br>Group Zalo</h3>
-                    <p class="step-subtitle">Kết nối cộng đồng và nhận thông tin cập nhật</p>
+                    <h3 class="step-title">Chi Trả Hoa Hồng<br>& Báo Cáo</h3>
+                    <p class="step-subtitle">Nhận thanh toán định kỳ và theo dõi kết quả</p>
                 </div>
             </div>
+
+
 
             <div class="step step-5">
                 <div class="step-wrapper">
@@ -520,61 +550,37 @@
             <div class="step step-6">
                 <div class="step-wrapper">
                     <div class="step-icon">
-                        <span class="step-number">6</span>
+                        <span class="step-number">4</span>
                         💰
                     </div>
-                    <h3 class="step-title">Chi Trả Hoa Hồng<br>& Báo Cáo</h3>
-                    <p class="step-subtitle">Nhận thanh toán định kỳ và theo dõi kết quả</p>
+                    <h3 class="step-title">Tham Gia<br>Group Zalo</h3>
+                    <p class="step-subtitle">Kết nối cộng đồng và nhận thông tin cập nhật</p>
                 </div>
             </div>
+
+
         </div>
 
         <div class="cta-section">
             <div class="cta-content">
                 <p class="cta-text">Bạn đã sẵn sàng bắt đầu hành trình Publisher?</p>
-                <button class="cta-button">Đăng Ký Ngay Hôm Nay</button>
+                <div class="comic-brutal-button-container">
+                    <button class="comic-brutal-button">
+                        <a href="https://aff.fimi.tech/auth/register" target="_blank" style="text-decoration: none;">
+                            <div class="button-inner">
+                                <span class="button-text">Đăng kí ngay</span>
+                                <div class="halftone-overlay"></div>
+                                <div class="ink-splatter"></div>
+                            </div>
+                            <div class="button-shadow"></div>
+                            <div class="button-frame"></div>
+                        </a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Enhanced interactive effects
-        document.querySelectorAll('.step-wrapper').forEach((wrapper, index) => {
-            wrapper.addEventListener('mouseenter', function () {
-                const icon = this.querySelector('.step-icon');
-                icon.style.transform = 'translateY(-5px) scale(1.1) rotate(5deg)';
-                icon.style.boxShadow = '0 20px 40px rgba(223, 31, 45, 0.3)';
-            });
-
-            wrapper.addEventListener('mouseleave', function () {
-                const icon = this.querySelector('.step-icon');
-                icon.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-                icon.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
-            });
-        });
-
-        // CTA button interaction
-        document.querySelector('.cta-button').addEventListener('click', function () {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'translateY(-3px) scale(1)';
-            }, 150);
-        });
-
-        // Add subtle parallax effect to decorative shapes
-        document.addEventListener('mousemove', function (e) {
-            const shapes = document.querySelectorAll('.shape-1, .shape-2, .shape-3');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.5;
-                const xPos = (x - 0.5) * speed;
-                const yPos = (y - 0.5) * speed;
-                shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
-            });
-        });
-    </script>
 </body>
 
 </html>
